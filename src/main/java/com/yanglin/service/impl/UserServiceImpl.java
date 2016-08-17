@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.insuranceservices.model.claim.ClaimReportInfo;
 import com.yanglin.dao.HistorycaseInfoMapper;
 import com.yanglin.dao.LossaccessmentCasualitesMapper;
 import com.yanglin.dao.LossaccessmentLaborsMapper;
@@ -17,7 +16,6 @@ import com.yanglin.dao.PolicyCategoryMapper;
 import com.yanglin.dao.PolicyRiskclassMapper;
 import com.yanglin.dao.ReportinfoMapper;
 import com.yanglin.dao.SurveyInfoMapper;
-import com.yanglin.dao.UserMapper;
 import com.yanglin.model.HistorycaseInfo;
 import com.yanglin.model.Lossaccessment;
 import com.yanglin.model.LossaccessmentCasualites;
@@ -35,8 +33,8 @@ import com.yanglin.service.UserServiceI;
 @Service("userService")
 public class UserServiceImpl implements UserServiceI{
 	
-	@Autowired
-	private UserMapper userMapper;
+//	@Autowired
+//	private UserMapper userMapper;
 	//定损信息
 	@Autowired
 	private LossaccessmentMapper lossaccessmentMapper;
@@ -73,12 +71,12 @@ public class UserServiceImpl implements UserServiceI{
 
 	
     public List<String> getDistinctReportNo() {
-        return userMapper.getDistinctReportNo();
+        return reportinfoMapper.getDistinctReportNo();
     }
 
-    public List<ClaimReportInfo> getReportInfo(String reportNo) {
-        return userMapper.getReportInfo(reportNo);
-    }
+//    public List<ClaimReportInfo> getReportInfo(String reportNo) {
+//        return userMapper.getReportInfo(reportNo);
+//    }
     
     public List<Lossaccessment> getLossInfo(String claimNumber){
         return lossaccessmentMapper.getLossInfoByClaimNumber(claimNumber);

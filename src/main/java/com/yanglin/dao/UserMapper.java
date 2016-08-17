@@ -1,8 +1,5 @@
 package com.yanglin.dao;
 
-import java.util.List;
-
-import com.insuranceservices.model.claim.ClaimReportInfo;
 /**
  * 
  * 
@@ -26,9 +23,9 @@ public interface UserMapper {
 //	int updateByPrimaryKey(User record);
 
 	
-    List<String> getDistinctReportNo();
+//    List<String> getDistinctReportNo();
 
-    List<ClaimReportInfo> getReportInfo(String reportNo);
+//    List<ClaimReportInfo> getReportInfo(String reportNo);
 
 
 }

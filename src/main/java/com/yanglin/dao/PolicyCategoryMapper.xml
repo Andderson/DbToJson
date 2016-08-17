@@ -23,7 +23,5 @@
   
   <select id="getBanDanInfoByBaodanhao" resultMap="BaseResultMap">
   	select distinct * from policy_category where baodanhao = #{baoDanHao}
-  
-  
   </select>
 </mapper>

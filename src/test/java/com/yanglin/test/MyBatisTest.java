@@ -103,7 +103,7 @@ public class MyBatisTest {
 	    
 	    List<String> distinctReportNo = userServiceI.getDistinctReportNo();
 	    
-	    System.out.println(distinctReportNo.size());
+	    System.out.println("报案号个数： " + distinctReportNo.size());
 	    
         try {
             for (String reportNo : distinctReportNo) {
@@ -114,10 +114,11 @@ public class MyBatisTest {
                     for (Lossaccessment lossaccessment : lossInfo) {
 
                         ClaimModel claimModel = new ClaimModel();
-
+                        System.out.println(reportNo);
                         //报案号
                         claimModel.setClaimNumber(reportNo);
-                        claimModel.setInsuranceCompanyId(6);
+                        //公司ID
+//                        claimModel.setInsuranceCompanyId(6);
                         
                         //定损信息列表
                         List<LossAssessmentInfo> lossAssessmentInfos = new ArrayList<LossAssessmentInfo>();
@@ -431,14 +432,22 @@ public class MyBatisTest {
                         if (reportInfos != null && reportInfos.size() > 0) {
                             ClaimReportInfo claimReportInfo = new ClaimReportInfo();
                             Reportinfo reportinfo = reportInfos.get(0);
+                            //报案号
+                            if (StringUtils.isNoneBlank(reportinfo.getBaoanhao())) {
+                                
+                                claimReportInfo.setClaimNumber(reportinfo.getBaoanhao());
+                            }
+                            //案件来源
                             if (reportinfo.getAnjianlaiyuan() != null) {
                                 
                                 claimReportInfo.setClaimResource(reportinfo.getAnjianlaiyuan());
                             }
+                            //历史出险次数
                             if (reportinfo.getLishiChuxiancishu() != null) {
                                 
                                 claimReportInfo.setHistoryAccidentCount(reportinfo.getLishiChuxiancishu());
                             }
+                            //关联报案号
                             if (reportinfo.getGuanlianBaoanhao() != null) {
                                 
                                 claimReportInfo.setAssociatedClaimNumber(reportinfo.getGuanlianBaoanhao());
@@ -992,11 +1001,13 @@ public class MyBatisTest {
 //	    PolicyCategory banDanInfoByBaodanhao = userServiceI.getBanDanInfoByBaodanhao("1080105072013000004YD");
 //	    System.out.println(banDanInfoByBaodanhao.getBaodanLeixing());
 	    
-//	    List<PolicyRiskclass> baoxianXianbieInfo = userServiceI.getBaoxianXianbieInfo("1020105072015000005YD");
-//	    System.out.println(baoxianXianbieInfo.size());
+	    List<PolicyRiskclass> baoxianXianbieInfo = userServiceI.getBaoxianXianbieInfo("1020105072015000005YD");
+	    System.out.println(baoxianXianbieInfo.size());
 	    
-	    List<HistorycaseInfo> lishiPeianLiebiao = userServiceI.getLishiPeianLiebiao("1110705072015400055YD");
-	    System.out.println(lishiPeianLiebiao.size());
+//	    List<HistorycaseInfo> lishiPeianLiebiao = userServiceI.getLishiPeianLiebiao("1110705072015400055YD");
+//	    System.out.println(lishiPeianLiebiao.size());
+//	    List<String> distinctReportNo = userServiceI.getDistinctReportNo();
+//	    System.out.println(distinctReportNo.size());
 	    
 	}
 	

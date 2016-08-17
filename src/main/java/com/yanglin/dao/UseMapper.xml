@@ -107,54 +107,6 @@
 		select distinct t.guanlian_baoanhao from reportinfo t
 	</select>
 	
-	<select id="getReportInfo" resultType="com.insuranceservices.model.claim.ClaimReportInfo">
-		select 
-		  t.`soruce` claimResource,
-		  t.`accidentrecords` historyAccidentCount,
-		  t.`reportNo` claimNumber,
-		  t.`reportNo` associatedClaimNumber,
-		  t.`casetype` claimType,
-		  t.`reporter` reporter,
-		  t.`reporterphonenumber` reporterTel,
-		  t.`reporttime` reportDate,
-		  case
-		    when t.`isfirstscenereport` = '是' 
-		    then 1 
-		    when t.`isfirstscenereport` = '否' 
-		    then 0 
-		  end as reportedOnSite,
-		  t.`accidenttime` accidentDate,
-		  t.`accidentplace` accidentArea,
-		  t.`accidentreason` accidentReason,
-		  t.`accidentdescribe` accidentDescription,
-		  case
-		    t.`isaccidentotherplace` 
-		    when '是' 
-		    then 1 
-		    when '否' 
-		    then 0 
-		    else 0 
-		  end as isRemoteAccident,
-		  t.`reportdriver` driverName,
-		  t.drivergender driverGender,
-		  t.`accidenttype` accidentResponsibility,
-		  t.`insuredpersonname` accidentType,
-		  case
-		    t.isreporterinsured 
-		    when '是' 
-		    then 1 
-		    when '否' 
-		    then 0 
-		    else 0 
-		  end as reporterIsInsured,
-		  t.insuredpersonname theInsuredName,
-		  t.insuredpersonphoneNo theInsuredContact,
-		  t.policynumber remark 
-		from
-		  reportinfo t	
-		where t.reportNo = #{reportNo}
-	
-	</select>
 	
 	
 </mapper>
