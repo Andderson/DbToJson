@@ -201,9 +201,11 @@ public class MyBatisTest {
                             if (lossaccessmentVehicle.getVin() != null) {
                                 vehicleInfo.setVIN(lossaccessmentVehicle.getVin());
                             }
+                            //定损车型
                             if (lossaccessmentVehicle.getDingsunChexing() != null) {
-                                vehicleInfo.setLossAssessmentModel(lossaccessmentVehicle.getDingsunChexing());
+                                vehicleInfo.setModel(lossaccessmentVehicle.getDingsunChexing());
                             }
+                            //座位数
                             if (lossaccessmentVehicle.getZuoweishu() != null) {
                                 vehicleInfo.setNumberOfSeats(lossaccessmentVehicle.getZuoweishu());
                             }
@@ -544,6 +546,7 @@ public class MyBatisTest {
                         //查勘信息  开始
                         SurveyInfo surveyInfo = userServiceI.getSurveyInfoByClaimAndVehicleNumber(reportNo,chepaihao);
                         if (surveyInfo != null) {
+                            //查勘信息对象
                             InvestigationInfo investigationInfo = new InvestigationInfo();
                             //报案号
                             if (surveyInfo.getBaoanhao() != null ) {
@@ -594,11 +597,11 @@ public class MyBatisTest {
                                 }                                
                             }
                             
-                            //查勘信息
+                            //查勘任务信息列表
                             Set<InvestigationTaskInfo> investigationTaskInfoes = new HashSet<InvestigationTaskInfo>();
-                            //车辆查勘信息
+                            //车辆查勘信息列表
                             Set<InvestigationVehicleInfo> vehicleInvestigationInfoSet = new HashSet<InvestigationVehicleInfo>();
-                            //单个的查勘信息
+                            //单个的查勘任务信息
                             InvestigationTaskInfo investigationTaskInfo = new InvestigationTaskInfo();
                             //单个的车辆查勘信息
                             InvestigationVehicleInfo investigationVehicleInfo = new InvestigationVehicleInfo();
@@ -630,16 +633,17 @@ public class MyBatisTest {
                                 
                                 investigationTaskInfo.setInvestigationComments(surveyInfo.getChakanBaogao());
                             }
-                            
+                            //查勘任务中的车辆信息
                             if (surveyInfo.getChepaihao() != null) {
                                 investigationVehicleInfo.setRegistrationNumber(surveyInfo.getChepaihao());
                             }
                             if (surveyInfo.getVin() != null) {
                                 investigationVehicleInfo.setVIN(surveyInfo.getVin());
                             }
+                            //定损车型
                             if (surveyInfo.getDingsunChexing() != null) {
                                 
-                                investigationVehicleInfo.setLossAssessmentModel(surveyInfo.getDingsunChexing());
+                                investigationVehicleInfo.setModel(surveyInfo.getDingsunChexing());
                             }
                             //车主信息
                             VehicleOwnerInfo vehicleOwnerInfo = new VehicleOwnerInfo();
@@ -734,13 +738,16 @@ public class MyBatisTest {
                                 }
                                 //单个保单信息
                                 InsurancePolicy insurancePolicy = new InsurancePolicy();
-                                
+                                //保单号
                                 if (banDanInfoByBaodanhao.getBaodanhao() != null) {
                                     
                                     insurancePolicy.setPolicyNumber(banDanInfoByBaodanhao.getBaodanhao());
                                 }
+                                //保单类型
                                 if (banDanInfoByBaodanhao.getBaodanLeixing() != null) {
-                                    insurancePolicy.setPolicyNumberCategory(banDanInfoByBaodanhao.getBaodanLeixing());
+                                    InsuranceTypeInfo insuranceTypeInfo = new InsuranceTypeInfo();
+                                    insuranceTypeInfo.setInsuranceTypeName(banDanInfoByBaodanhao.getBaodanLeixing());
+                                    insurancePolicy.setInsuranceType(insuranceTypeInfo);
                                 }
                                 //被保险人客户类型
                                 if (banDanInfoByBaodanhao.getBeibaoxianrenKehuleixing() != null) {
