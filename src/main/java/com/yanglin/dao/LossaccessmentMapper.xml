@@ -21,7 +21,8 @@
     <result column="dingsun_hejijine" property="dingsunHejijine" jdbcType="DECIMAL" />
     <result column="dingsun_zongcanzhijine" property="dingsunZongcanzhijine" jdbcType="DECIMAL" />
     <result column="shijiufei" property="shijiufei" jdbcType="DECIMAL" />
-    <result column="baoxianleixing_xianbie" property="baoxianleixingXianbie" jdbcType="VARCHAR" />
+  <!--   <result column="baoxianleixing_xianbie" property="baoxianleixingXianbie" jdbcType="VARCHAR" /> -->
+    <result column="baoxianleixing_xianbie" property="dingsunxianzhong" jdbcType="VARCHAR" />
     <result column="qibao_shijian" property="qibaoShijian" jdbcType="TIMESTAMP" />
     <result column="zhongbao_shijian" property="zhongbaoShijian" jdbcType="TIMESTAMP" />
   </resultMap>
