@@ -650,8 +650,63 @@ public class MyBatisTest {
                             if (surveyInfo.getChezhuXingming() != null) {
                                 vehicleOwnerInfo.setName(surveyInfo.getChezhuXingming());
                             }
-                            if (surveyInfo.getZhengjianLeixing() != null) {
-                                vehicleOwnerInfo.setCredentialType(surveyInfo.getZhengjianLeixing());
+                            if (surveyInfo.getZhengjianLeixing() != null&&!"".equals(surveyInfo.getZhengjianLeixing())) {
+//                                vehicleOwnerInfo.setCredentialType(surveyInfo.getZhengjianLeixing());
+                                switch (Integer.parseInt(surveyInfo.getZhengjianLeixing())){
+                                case 1:
+                                    vehicleOwnerInfo.setCredentialType("居民身份证 ");
+                                    break;
+                                case 2:
+                                    vehicleOwnerInfo.setCredentialType("居民户口薄");
+                                    break;
+                                case 3:
+                                    vehicleOwnerInfo.setCredentialType("驾驶证");
+                                    break;
+                                case 4:
+                                    vehicleOwnerInfo.setCredentialType("军官证");
+                                    break;
+                                case 5:
+                                    vehicleOwnerInfo.setCredentialType("士兵证");
+                                    break;
+                                case 6:
+                                    vehicleOwnerInfo.setCredentialType("军官离退休证");
+                                    break;
+                                case 7:
+                                    vehicleOwnerInfo.setCredentialType("中国护照");
+                                    break;
+                                case 8:
+                                    vehicleOwnerInfo.setCredentialType("异常身份证");
+                                    break;
+                                case 41:
+                                    vehicleOwnerInfo.setCredentialType("港澳通行证");
+                                    break;
+                                case 42:
+                                    vehicleOwnerInfo.setCredentialType("台湾通行证");
+                                    break;
+                                case 43:
+                                    vehicleOwnerInfo.setCredentialType("回乡证");
+                                    break;
+                                case 51:
+                                    vehicleOwnerInfo.setCredentialType("外国护照");
+                                    break;
+                                case 52:
+                                    vehicleOwnerInfo.setCredentialType("旅行证");
+                                    break;
+                                case 53:
+                                    vehicleOwnerInfo.setCredentialType("居留证件");
+                                    break;
+                                case 71:
+                                    vehicleOwnerInfo.setCredentialType("组织机构代码证");
+                                    break;
+                                case 72:
+                                    vehicleOwnerInfo.setCredentialType("税务登记证");
+                                    break;
+                                case 73:
+                                    vehicleOwnerInfo.setCredentialType("营业执照");
+                                    break;
+                                default :
+                                    vehicleOwnerInfo.setCredentialType("其它证件");
+                                }
                             }
                             investigationVehicleInfo.setVehicleOwner(vehicleOwnerInfo);
                             
@@ -795,6 +850,10 @@ public class MyBatisTest {
                                     
                                     policyVehicleInfo.setUsageName(banDanInfoByBaodanhao.getShiyongxingzhi());
                                 }
+                                //新车购置价
+                           
+                                    policyVehicleInfo.setPurchasePrice(banDanInfoByBaodanhao.getXinchegouzhijia());
+                                
                                 
                                 //行驶区域
                                 if (banDanInfoByBaodanhao.getXingshiquyu() != null) {
@@ -1077,9 +1136,11 @@ public class MyBatisTest {
         try {
 
             String separator = File.separator;
-            String directory = "F:" + separator + "BaiduYunDownload" + separator + "claim-taihe" + separator + "json";
+//            String directory = "F:" + separator + "BaiduYunDownload" + separator + "claim-taihe" + separator + "json";
+//            E:\yingdataihe_json
+            String directory = "E:" + separator + "yingdataihe_json";
             String fileName1 = fileName + ".json";
-
+           
             File file = new File(directory, fileName1);
             if (!file.exists()) {
                 // 先创建文件所在的目录
@@ -1137,7 +1198,8 @@ public class MyBatisTest {
             // System.out.println("Done");
 
             String separator = File.separator;
-            String directory = "F:" + separator + "BaiduYunDownload" + separator + "claim-taihe" + separator + "json";
+//            String directory = "F:" + separator + "BaiduYunDownload" + separator + "claim-taihe" + separator + "json";
+            String directory = "E:" + separator + "yingdataihe_json";
             String fileName = "a";
             String fileName1 = fileName + ".json";
             String claimJson = "创建新文件时出现了错误。。。";

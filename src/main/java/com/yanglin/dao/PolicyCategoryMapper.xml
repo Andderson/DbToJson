@@ -19,6 +19,7 @@
     <result column="chudanjigou" property="chudanjigou" jdbcType="VARCHAR" />
     <result column="pigaishijian" property="pigaishijian" jdbcType="VARCHAR" />
     <result column="shifou_toubaoxinzengshebei" property="shifouToubaoxinzengshebei" jdbcType="VARCHAR" />
+    <result column="xinchegouzhijia" property="xinchegouzhijia" jdbcType="DECIMAL" /><!-- decimal -->
   </resultMap>
   
   <select id="getBanDanInfoByBaodanhao" resultMap="BaseResultMap">
