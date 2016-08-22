@@ -15,7 +15,7 @@
   </resultMap>
   
   <select id="getBaoxianXianbieInfo" resultMap="BaseResultMap">
-  	select * from policy_riskclass where baodanhao = #{baoDanHao}
+  	select distinct  * from policy_riskclass where baodanhao = #{baoDanHao}
   
   </select>
 

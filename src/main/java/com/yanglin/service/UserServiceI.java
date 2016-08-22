@@ -2,7 +2,6 @@ package com.yanglin.service;
 
 import java.util.List;
 
-import com.insuranceservices.model.claim.ClaimReportInfo;
 import com.yanglin.model.HistorycaseInfo;
 import com.yanglin.model.Lossaccessment;
 import com.yanglin.model.LossaccessmentCasualites;
@@ -32,7 +31,7 @@ public interface UserServiceI {
 	
     List<String> getDistinctReportNo();
     
-    List<ClaimReportInfo> getReportInfo(String reportNo);
+//    List<ClaimReportInfo> getReportInfo(String reportNo);
     
     List<Lossaccessment> getLossInfo(String claimNumber);
     

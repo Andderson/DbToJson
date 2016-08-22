@@ -20,7 +20,7 @@ public interface ReportinfoMapper {
      * @mbggenerated
      */
     int insertSelective(Reportinfo record);
-
+	
     /**
      * 
      * @param reportNo
@@ -30,4 +30,6 @@ public interface ReportinfoMapper {
 
     
     List<String> getBaoDanListByClaimNumber(String reportNo);
+
+    List<String> getDistinctReportNo();	
 }
